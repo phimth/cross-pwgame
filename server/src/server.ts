@@ -41,18 +41,17 @@ io.on("connection", socket => {
   socket.on("event::magicNumber", payload => {
     let state = "";
     let player = payload.nickname;
-    if(payload.number != magicNumber){
       if (payload.number > magicNumber) {
         state = "lower"
       }
-      if (payload.number < magicNumber) {
+      else if (payload.number < magicNumber) {
         state = "higher"
       }
+      else if (payload.number = magicNumber) {
+        state = "win"
+      }
      socket.emit("event::magicNumberState", { state,player })
-    }else{
-      socket.emit("event::winnable", { player })
-    }
-  })
+    })
 });
 
 server.listen(PORT, () => {

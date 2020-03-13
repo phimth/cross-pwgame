@@ -62,13 +62,10 @@ const App = () => {
       <div className="hero-body">
         <div className="container">
           <header className="bd-index-header">
-          {!isGameOver ?
             {!isGameStarted ? 
             <AskNickname setNickname={setNickname} io={io} nickname={nickname}/> : 
             <MagicNumber nickname={nickname} io={io} />
-            }:
-            <Hello nickname={nickname}/>
-          }
+            }
           </header>
         </div>
       </div>
